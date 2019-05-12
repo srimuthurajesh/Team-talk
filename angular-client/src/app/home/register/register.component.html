@@ -1,0 +1,28 @@
+  <form role="form" (ngSubmit)="register(f)" #f="ngForm">
+   <fieldset>							
+     <p class="text-uppercase pull-center"> SIGN UP</p>	
+      <div class="form-group">
+       <input type="text" name="username" id="username" class="form-control input-lg" placeholder="username" ngModel>
+     </div>
+
+     <div class="form-group">
+       <input type="email" name="email" id="email" class="form-control input-lg" placeholder="email Address" ngModel>
+     </div>
+     <div class="form-group">
+       <input type="password" name="password" id="password" class="form-control input-lg" placeholder="password" ngModel>
+     </div>
+       <div class="form-group">
+       <input type="password" name="confirmpassword" id="confirmpassword" class="form-control input-lg" placeholder="confirm password" ngModel>
+     </div>
+     <div>
+           <input type="submit" class="btn btn-primary" value="Register">
+     </div>
+     <br>
+     <div class="alert alert-success hide d-none" role="alert" [ngClass]="{'d-block': showRegSuccessMsg == 1}">
+        <small><b>Success!</b>, Registered successfully, now try to login</small>
+     </div>
+     <div class="alert alert-danger hide d-none" role="alert" [ngClass]="{'d-block': showRegErrorMsg == 1}">
+      <small><b>Sorry!</b>, something went wrong</small>
+    </div>
+   </fieldset>
+ </form>

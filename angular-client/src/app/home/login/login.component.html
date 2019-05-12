@@ -1,0 +1,17 @@
+<form role="form" (ngSubmit)="loginValidate(f)" #f="ngForm">
+    <fieldset>							
+        <p class="text-uppercase"> Login</p>	
+        <div class="form-group">
+            <input type="email" name="email" id="loginEmail" class="form-control input-lg" placeholder="username" ngModel required>
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" id="loginPassword" class="form-control input-lg" placeholder="password" ngModel>
+        </div>
+        <div class="alert alert-danger hide d-none" role="alert" [ngClass]="{'d-block': showErrorMsg == 1}">
+            <small><b>Sorry!</b>, kindly check you email or password</small>
+        </div>
+        <div>
+            <input type="submit" class="btn btn-md btn-success" value="Sign In">
+        </div>
+    </fieldset>
+</form>	

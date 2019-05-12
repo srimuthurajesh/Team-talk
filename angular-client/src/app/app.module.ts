@@ -10,11 +10,17 @@ import { LoginComponent } from './home/login/login.component';
 import { NavbarComponent } from './home/navbar/navbar.component';
 import { RegisterComponent } from './home/register/register.component';
 import { HomeComponent } from './home/home/home.component';
+import { ChatComponent } from './chat/chat.component';
+import { AuthGuard } from './auth.guard.service';
 
 const appRoutes: Routes = [
   {
     path: '',
     component: HomeComponent 
+  },
+  {
+    path: 'chatpage', canActivate:[AuthGuard], 
+    component: ChatComponent 
   }
 
 ];
@@ -25,18 +31,16 @@ const appRoutes: Routes = [
     LoginComponent,
     NavbarComponent,
     RegisterComponent,
-    HomeComponent
+    HomeComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(
-      appRoutes,
-      { enableTracing: true } // <-- debugging purposes only
-    )
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
